@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="index.js"></script>
+    
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center converter-container">
+            <div class="col-lg-6 col-md-8">
+                <div class="card">
+                    <!-- Header -->
+                    <div class="card-header text-center">
+                        <h2 class="mb-0">
+                            <i class="fas fa-exchange-alt me-2"></i>
+                            Currency Converter
+                        </h2>
+                        <p class="mb-0 mt-2 opacity-75">Convert currencies with real-time exchange rates</p>
+                    </div>
+                    
+                    <!-- Main Content -->
+                    <div class="card-body p-4">
+                        <!-- Currency Selection Form -->
+                        <form id="currencyForm">
+                            <!-- Amount Input -->
+                            <div class="mb-4">
+                                <label for="amount" class="form-label fw-bold">
+                                    <i class="fas fa-dollar-sign me-1"></i>Amount
+                                </label>
+                                <input type="number" 
+                                       class="form-control" 
+                                       id="amount" 
+                                       placeholder="Enter amount to convert" 
+                                       min="0.01" 
+                                       step="0.01" 
+                                       required>
+                            </div>
+                            
+                            <!-- Currency Selection Row -->
+                            <div class="row mb-4">
+                                <!-- From Currency -->
+                                <div class="col-5">
+                                    <label for="fromCurrency" class="form-label fw-bold">From</label>
+                                    <select class="form-select" id="fromCurrency" required>
+                                        <option value="">Select Currency</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- Swap Button -->
+                                <div class="col-2 d-flex align-items-end justify-content-center">
+                                    <button type="button" class="btn btn-outline-secondary currency-swap" id="swapBtn">
+                                        <i class="fas fa-exchange-alt"></i>
+                                    </button>
+                                </div>
+                                
+                                <!-- To Currency -->
+                                <div class="col-5">
+                                    <label for="toCurrency" class="form-label fw-bold">To</label>
+                                    <select class="form-select" id="toCurrency" required>
+                                        <option value="">Select Currency</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <!-- Convert Button -->
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-primary btn-convert">
+                                    <span class="convert-text">
+                                        <i class="fas fa-calculator me-2"></i>Convert
+                                    </span>
+                                    <span class="loading">
+                                        <i class="fas fa-spinner fa-spin me-2"></i>Converting...
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <!-- Result Section -->
+                        <div class="result-section" id="resultSection">
+                            <div class="text-center">
+                                <i class="fas fa-chart-line fa-2x text-muted mb-2 d-block"></i>
+                                <div class="result-text">Enter amount and select currencies to convert</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Exchange Rate Info -->
+                        <div id="rateInfo" class="text-center mt-3 text-muted small" style="display: none;">
+                            <i class="fas fa-info-circle me-1"></i>
+                            <span id="rateText"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Info -->
+                <div class="text-center mt-3 text-white">
+                    <small>
+                        <i class="fas fa-clock me-1"></i>
+                        Rates updated in real-time via ExchangeRate-API
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
